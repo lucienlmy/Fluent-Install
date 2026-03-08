@@ -1,0 +1,14 @@
+# PyQt6-Fluent-Widgets 版本依赖
+
+# PyQt6 核心
+PyQt6>=6.4.0
+
+# Fluent Design 组件库（必须使用 PyQt6 版本）
+PyQt6-Fluent-Widgets>=1.5.0
+
+# 现有依赖（从原项目继承）
+httpx>=0.24.0
+aiofiles>=23.0.0
+ujson>=5.8.0
+colorlog>=6.7.0
+vdf>=3.4
