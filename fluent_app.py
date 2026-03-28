@@ -201,7 +201,9 @@ TEXTS = {
         "window_effect": "窗口特效",
         "window_effect_hint": "选择窗口背景特效",
         "effect_none": "无特效",
-        "effect_mica": "云母",
+        "effect_mica": "云母 (Win11)",
+        "effect_acrylic": "亚克力 (Win10+)",
+        "effect_aero": "Aero 毛玻璃",
         "light_theme": "浅色",
         "dark_theme": "深色",
         "follow_system": "跟随系统",
@@ -220,6 +222,16 @@ TEXTS = {
         "sudama": "Sudama库 (仅密钥)",
         "buqiuren": "清单不求人库 (仅清单)",
         "github_auiowu": "GitHub (Auiowu)",
+        "check_update": "检查更新",
+        "checking": "检查中...",
+        "update_available": "发现新版本",
+        "current_version": "当前版本",
+        "latest_version": "最新版本",
+        "no_release_notes": "暂无更新说明",
+        "go_to_download": "前往下载",
+        "already_latest": "已是最新版本",
+        "already_latest_content": "当前已是最新版本，无需更新。",
+        "check_update_failed": "检查更新失败",
         "restart_steam_title": "重启 Steam",
         "restart_steam_confirm_message": "确定要重启 Steam 吗？\n\n这将关闭当前运行的 Steam 并重新启动。",
         
@@ -344,7 +356,9 @@ TEXTS = {
         "window_effect": "Window Effect",
         "window_effect_hint": "Select window background effect",
         "effect_none": "None",
-        "effect_mica": "Mica",
+        "effect_mica": "Mica (Win11)",
+        "effect_acrylic": "Acrylic (Win10+)",
+        "effect_aero": "Aero Blur",
         "default_blue": "Default Blue (#0078d4)",
         "purple": "Purple (#9b4dca)",
         "green": "Green (#10893e)",
@@ -359,6 +373,16 @@ TEXTS = {
         "sudama": "Sudama Library (Keys Only)",
         "buqiuren": "Manifest Helper Library (Manifest Only)",
         "github_auiowu": "GitHub (Auiowu)",
+        "check_update": "Check Update",
+        "checking": "Checking...",
+        "update_available": "New Version Available",
+        "current_version": "Current Version",
+        "latest_version": "Latest Version",
+        "no_release_notes": "No release notes",
+        "go_to_download": "Download",
+        "already_latest": "Already Up to Date",
+        "already_latest_content": "You are running the latest version.",
+        "check_update_failed": "Check Update Failed",
         "restart_steam_title": "Restart Steam",
         "restart_steam_confirm_message": "Are you sure you want to restart Steam?\n\nThis will close the currently running Steam and restart it.",
         
@@ -487,7 +511,9 @@ TEXTS = {
         "window_effect": "Effet de fenêtre",
         "window_effect_hint": "Sélectionnez l'effet d'arrière-plan de la fenêtre",
         "effect_none": "Aucun effet",
-        "effect_mica": "Mica",
+        "effect_mica": "Mica (Win11)",
+        "effect_acrylic": "Acrylic (Win10+)",
+        "effect_aero": "Aero Blur",
         "light_theme": "Clair",
         "dark_theme": "Sombre",
         "follow_system": "Suivre le système",
@@ -505,6 +531,16 @@ TEXTS = {
         "sudama": "Bibliothèque Sudama (Clés seulement)",
         "buqiuren": "Bibliothèque d'aide de manifeste (Manifeste seulement)",
         "github_auiowu": "GitHub (Auiowu)",
+        "check_update": "Vérifier les mises à jour",
+        "checking": "Vérification...",
+        "update_available": "Nouvelle version disponible",
+        "current_version": "Version actuelle",
+        "latest_version": "Dernière version",
+        "no_release_notes": "Pas de notes de version",
+        "go_to_download": "Télécharger",
+        "already_latest": "Déjà à jour",
+        "already_latest_content": "Vous utilisez la dernière version.",
+        "check_update_failed": "Échec de la vérification",
         "restart_steam_title": "Redémarrer Steam",
         "restart_steam_confirm_message": "Êtes-vous sûr de vouloir redémarrer Steam?\n\nCela fermera Steam en cours et le redémarrera.",
         "tip": "Astuce",
@@ -632,7 +668,9 @@ TEXTS = {
         "window_effect": "Эффект окна",
         "window_effect_hint": "Выберите эффект фона окна",
         "effect_none": "Без эффекта",
-        "effect_mica": "Мика",
+        "effect_mica": "Мика (Win11)",
+        "effect_acrylic": "Акрил (Win10+)",
+        "effect_aero": "Aero Размытие",
         "light_theme": "Светлая",
         "dark_theme": "Темная",
         "follow_system": "Следовать системе",
@@ -650,6 +688,16 @@ TEXTS = {
         "sudama": "Библиотека Sudama (Только ключи)",
         "buqiuren": "Библиотека помощи манифеста (Только манифест)",
         "github_auiowu": "GitHub (Auiowu)",
+        "check_update": "Проверить обновления",
+        "checking": "Проверка...",
+        "update_available": "Доступна новая версия",
+        "current_version": "Текущая версия",
+        "latest_version": "Последняя версия",
+        "no_release_notes": "Нет примечаний",
+        "go_to_download": "Скачать",
+        "already_latest": "Уже актуально",
+        "already_latest_content": "У вас установлена последняя версия.",
+        "check_update_failed": "Ошибка проверки",
         "restart_steam_title": "Перезапустить Steam",
         "restart_steam_confirm_message": "Вы уверены, что хотите перезапустить Steam?\n\nЭто закроет текущий Steam и перезапустит его.",
         "tip": "Совет",
@@ -777,7 +825,9 @@ TEXTS = {
         "window_effect": "Fenster-Effekt",
         "window_effect_hint": "Wählen Sie den Fenster-Hintergrund-Effekt",
         "effect_none": "Kein Effekt",
-        "effect_mica": "Mica",
+        "effect_mica": "Mica (Win11)",
+        "effect_acrylic": "Acrylic (Win10+)",
+        "effect_aero": "Aero Blur",
         "light_theme": "Hell",
         "dark_theme": "Dunkel",
         "follow_system": "System folgen",
@@ -795,6 +845,16 @@ TEXTS = {
         "sudama": "Sudama-Bibliothek (Nur Schlüssel)",
         "buqiuren": "Manifest-Hilfsbibliothek (Nur Manifest)",
         "github_auiowu": "GitHub (Auiowu)",
+        "check_update": "Nach Updates suchen",
+        "checking": "Suche...",
+        "update_available": "Neue Version verfügbar",
+        "current_version": "Aktuelle Version",
+        "latest_version": "Neueste Version",
+        "no_release_notes": "Keine Versionshinweise",
+        "go_to_download": "Herunterladen",
+        "already_latest": "Bereits aktuell",
+        "already_latest_content": "Sie verwenden die neueste Version.",
+        "check_update_failed": "Prüfung fehlgeschlagen",
         "restart_steam_title": "Steam neu starten",
         "restart_steam_confirm_message": "Sind Sie sicher, dass Sie Steam neu starten möchten?\n\nDies wird das aktuelle Steam schließen und neu starten.",
         "tip": "Tipp",
@@ -922,7 +982,9 @@ TEXTS = {
         "window_effect": "ウィンドウエフェクト",
         "window_effect_hint": "ウィンドウ背景エフェクトを選択",
         "effect_none": "エフェクトなし",
-        "effect_mica": "マイカ",
+        "effect_mica": "マイカ (Win11)",
+        "effect_acrylic": "アクリル (Win10+)",
+        "effect_aero": "Aero ブラー",
         "light_theme": "ライト",
         "dark_theme": "ダーク",
         "follow_system": "システムに従う",
@@ -940,6 +1002,16 @@ TEXTS = {
         "sudama": "Sudamaライブラリ (キーのみ)",
         "buqiuren": "マニフェストヘルパーライブラリ (マニフェストのみ)",
         "github_auiowu": "GitHub (Auiowu)",
+        "check_update": "アップデートを確認",
+        "checking": "確認中...",
+        "update_available": "新しいバージョンが利用可能",
+        "current_version": "現在のバージョン",
+        "latest_version": "最新バージョン",
+        "no_release_notes": "リリースノートなし",
+        "go_to_download": "ダウンロード",
+        "already_latest": "最新版です",
+        "already_latest_content": "最新バージョンを使用しています。",
+        "check_update_failed": "確認に失敗しました",
         "restart_steam_title": "Steamを再起動",
         "restart_steam_confirm_message": "Steamを再起動してもよろしいですか？\n\n現在実行中のSteamを終了して再起動します。",
         "tip": "ヒント",
@@ -1074,7 +1146,9 @@ TEXTS = {
         "window_effect": "視窗特效",
         "window_effect_hint": "選擇視窗背景特效",
         "effect_none": "無特效",
-        "effect_mica": "雲母",
+        "effect_mica": "雲母 (Win11)",
+        "effect_acrylic": "壓克力 (Win10+)",
+        "effect_aero": "Aero 毛玻璃",
         "light_theme": "淺色",
         "dark_theme": "深色",
         "follow_system": "跟隨系統",
@@ -1092,6 +1166,16 @@ TEXTS = {
         "sudama": "Sudama 資料庫 (僅金鑰)",
         "buqiuren": "清單不求人資料庫 (僅清單)",
         "github_auiowu": "GitHub (Auiowu)",
+        "check_update": "檢查更新",
+        "checking": "檢查中...",
+        "update_available": "發現新版本",
+        "current_version": "目前版本",
+        "latest_version": "最新版本",
+        "no_release_notes": "暫無更新說明",
+        "go_to_download": "前往下載",
+        "already_latest": "已是最新版本",
+        "already_latest_content": "目前已是最新版本，無需更新。",
+        "check_update_failed": "檢查更新失敗",
         "restart_steam_title": "重新啟動 Steam",
         "restart_steam_confirm_message": "確定要重新啟動 Steam 嗎？\n\n這將關閉目前執行中的 Steam 並重新啟動。",
         
@@ -1857,6 +1941,18 @@ class AsyncWorker(QThread):
                 finally:
                     self._loop = None
 
+
+def _replace_worker(old_worker):
+    """安全停止旧 worker，等待线程真正结束后返回。"""
+    if old_worker is not None:
+        try:
+            if old_worker.isRunning():
+                old_worker.cancel()
+                old_worker.wait()
+            old_worker.deleteLater()
+        except RuntimeError:
+            pass
+
 class HomePage(ScrollArea):
     """已入库的游戏页面（主页）"""
     
@@ -1981,6 +2077,7 @@ class HomePage(ScrollArea):
                 files_data = await backend.get_managed_files(get_steam_lang(current_language))
                 return files_data
 
+        _replace_worker(getattr(self, 'worker', None))
         self.worker = AsyncWorker(_load())
         self.worker.result_ready.connect(self.on_games_loaded)
         self.worker.error.connect(self.on_load_error)
@@ -1995,6 +2092,7 @@ class HomePage(ScrollArea):
                 name_map = await backend.fetch_missing_game_names(files_data, get_steam_lang(current_language))
                 return name_map
 
+        _replace_worker(getattr(self, '_name_worker', None))
         self._name_worker = AsyncWorker(_fetch())
         self._name_worker.result_ready.connect(lambda name_map: self._update_card_names(name_map))
         self._name_worker.finished.connect(self._name_worker.deleteLater)
@@ -2223,6 +2321,7 @@ class HomePage(ScrollArea):
                     result = backend.delete_managed_files(source_type, items)
                     return result
             
+            _replace_worker(getattr(self, 'delete_worker', None))
             self.delete_worker = AsyncWorker(_delete())
             self.delete_worker.result_ready.connect(lambda result: self.on_delete_complete(result, appid))
             self.delete_worker.error.connect(self.on_delete_error)
@@ -2275,6 +2374,7 @@ class HomePage(ScrollArea):
                 result = await backend.toggle_st_version(filename)
                 return result
         
+        _replace_worker(getattr(self, 'toggle_worker', None))
         self.toggle_worker = AsyncWorker(_toggle())
         self.toggle_worker.result_ready.connect(lambda result: self.on_toggle_st_version_complete(result, appid))
         self.toggle_worker.error.connect(self.on_toggle_st_version_error)
@@ -2724,6 +2824,7 @@ class SearchPage(ScrollArea):
             "SteamAutoCracks V2",
             "SteamAutoCracks V1",
             tr("sac-other"),
+            "cysaw",
             "Walftech",
             "Sudama",
             "清单不求人",
@@ -2931,11 +3032,12 @@ class SearchPage(ScrollArea):
                 1: "steamautocracks_v2",
                 2: "steamautocracks_v1",
                 3: "sac-other",
-                4: "walftech",
-                5: "sudama",
-                6: "buqiuren",
-                7: "MHub",
-                8: "github_auiowu",
+                4: "cysaw",
+                5: "walftech",
+                6: "sudama",
+                7: "buqiuren",
+                8: "MHub",
+                9: "github_auiowu",
             }
             config["default_manifest_source"] = source_mapping.get(self.manifest_source_combo.currentIndex(), "auto")
             
@@ -2984,11 +3086,12 @@ class SearchPage(ScrollArea):
                     "steamautocracks_v2": 1,
                     "steamautocracks_v1": 2,
                     "sac-other": 3,
-                    "walftech": 4,
-                    "sudama": 5,
-                    "buqiuren": 6,
-                    "MHub": 7,
-                    "github_auiowu": 8,
+                    "cysaw": 4,
+                    "walftech": 5,
+                    "sudama": 6,
+                    "buqiuren": 7,
+                    "MHub": 8,
+                    "github_auiowu": 9,
                 }
                 
                 index = source_mapping.get(saved_source, 0)
@@ -3494,20 +3597,20 @@ class SearchPage(ScrollArea):
         add_all_dlc = self.add_dlc_check.isChecked()
         patch_depot_key = self.patch_key_check.isChecked()
         
-        # 获取用户选择的清单源
-        source_mapping = {
-            "自动选择": "auto",
-            "SteamAutoCracks V2": "steamautocracks_v2",
-            "SteamAutoCracks V1": "steamautocracks_v1",
-            tr("sac-other"): "sac-other",
-            "Walftech": "walftech",
-            "Sudama": "sudama",
-            "清单不求人": "buqiuren",
-            tr("MHub"): "MHub",
-            tr("github_auiowu"): "Auiowu/ManifestAutoUpdate",
+        # 获取用户选择的清单源（用索引避免文本翻译不一致问题）
+        index_to_source = {
+            0: "auto",
+            1: "steamautocracks_v2",
+            2: "steamautocracks_v1",
+            3: "sac-other",
+            4: "cysaw",
+            5: "walftech",
+            6: "sudama",
+            7: "buqiuren",
+            8: "MHub",
+            9: "github_auiowu",
         }
-        selected_source = self.manifest_source_combo.currentText()
-        tool_type = source_mapping.get(selected_source, "auto")
+        tool_type = index_to_source.get(self.manifest_source_combo.currentIndex(), "auto")
         
         # 显示入库提示
         display_name = game_name or f"AppID {appid}"
@@ -3538,6 +3641,7 @@ class SearchPage(ScrollArea):
                         "steamautocracks_v2",
                         "steamautocracks_v1",
                         "sac-other",
+                        "cysaw",
                         "walftech",
                         "sudama",
                         "buqiuren",
@@ -3558,15 +3662,19 @@ class SearchPage(ScrollArea):
                     return False
                 
                 # 指定源模式
-                zip_sources = ["sac-other", "walftech", "steamautocracks_v2", "steamautocracks_v1", "sudama", "buqiuren", "MHub"]
+                github_repo_map = {
+                    "github_auiowu": "Auiowu/ManifestAutoUpdate",
+                }
+                zip_sources = ["cysaw", "sac-other", "walftech", "steamautocracks_v2", "steamautocracks_v1", "sudama", "buqiuren", "MHub"]
                 if tool_type_actual in zip_sources:
                     success = await backend.process_zip_source(
                         appid, tool_type_actual, unlocker_type,
                         use_st_auto_update, add_all_dlc, patch_depot_key
                     )
                 else:
+                    repo = github_repo_map.get(tool_type_actual, tool_type_actual)
                     success = await backend.process_github_manifest(
-                        appid, tool_type_actual, unlocker_type,
+                        appid, repo, unlocker_type,
                         use_st_auto_update, add_all_dlc, patch_depot_key
                     )
                 
@@ -4053,195 +4161,9 @@ class SettingsPage(ScrollArea):
         logging.getLogger(' Cai install').addHandler(self._log_handler)
 
     def _build_ui(self):
-        """首次显示时构建完整 UI"""
-        layout = QVBoxLayout(self._container)
-        layout.setContentsMargins(30, 30, 30, 30)
-        layout.setSpacing(20)
-
-        title = SubtitleLabel(tr("settings"), self)
-        layout.addWidget(title)
-
-        settings_card = SettinsCard(self)
-        layout.addWidget(settings_card)
-
-        self.steam_path_edit = settings_card.steam_path_edit
-        self.token_edit = settings_card.token_edit
-
-        self._setup_additional_settings(layout)
-
-        layout.addStretch(1)
-
-        # handler 已在 __init__ 注册，刷入缓冲日志
-        for level, msg in self._pending_logs:
-            self._append_log(level, msg)
-        self._pending_logs.clear()
+        """兼容 _prebuild_settings 调用，直接触发分帧构建"""
+        self._build_and_load()
     
-    def _setup_additional_settings(self, layout):
-        """设置其他设置卡片"""
-        # 应用程序配置卡片
-        app_config_card = GroupHeaderCardWidget(self)
-        app_config_card.setTitle(tr("application_config"))
-        app_config_card.setBorderRadius(8)
-        
-        # 调试模式
-        self.debug_check = SwitchButton()
-        self.debug_check.setChecked(False)
-        app_config_card.addGroup(FluentIcon.DEVELOPER_TOOLS, tr("debug_mode"), tr("debug_mode_hint"), self.debug_check)
-        
-        # 保存日志文件
-        self.logging_check = SwitchButton()
-        self.logging_check.setChecked(True)
-        app_config_card.addGroup(FluentIcon.SAVE, tr("save_log_files"), tr("save_log_files_hint"), self.logging_check)
-        
-        # 强制解锁工具模式
-        self.unlocker_combo = ComboBox()
-        self.unlocker_combo.addItems([tr("auto_detect"), tr("force_steamtools"), tr("force_greenluma")])
-        self.unlocker_combo.setCurrentIndex(0)
-        self.unlocker_combo.setFixedWidth(180)
-        app_config_card.addGroup(FluentIcon.SETTING, tr("unlocker_mode"), tr("force_unlocker_hint"), self.unlocker_combo)
-        
-        # SteamTools固定版本模式（全局设置）
-        self.st_fixed_check = SwitchButton()
-        self.st_fixed_check.setChecked(False)
-        self.st_fixed_check.setToolTip(tr("st_fixed_tooltip"))
-        app_config_card.addGroup(FluentIcon.SETTING, tr("st_settings"), tr("st_settings_hint"), self.st_fixed_check)
-        
-        # DLC 超时时间
-        self.dlc_timeout_spinbox = SpinBox()
-        self.dlc_timeout_spinbox.setRange(5, 600)
-        self.dlc_timeout_spinbox.setValue(60)
-        self.dlc_timeout_spinbox.setSuffix(" s")
-        self.dlc_timeout_spinbox.setFixedWidth(120)
-        app_config_card.addGroup(FluentIcon.SPEED_HIGH, tr("dlc_timeout"), tr("dlc_timeout_hint"), self.dlc_timeout_spinbox)
-
-        # 入库超时时间
-        self.timeout_spinbox = SpinBox()
-        self.timeout_spinbox.setRange(10, 300)
-        self.timeout_spinbox.setValue(30)
-        self.timeout_spinbox.setSuffix(" s")
-        self.timeout_spinbox.setFixedWidth(120)
-        app_config_card.addGroup(FluentIcon.SPEED_HIGH, tr("download_timeout"), tr("download_timeout_hint"), self.timeout_spinbox)
-        
-        layout.addWidget(app_config_card)
-        
-        # 外观设置卡片
-        appearance_card = GroupHeaderCardWidget(self)
-        appearance_card.setTitle(tr("appearance"))
-        appearance_card.setBorderRadius(8)
-        
-        # 主题模式
-        self.theme_combo = ComboBox()
-        self.theme_combo.addItems([tr("light_theme"), tr("dark_theme"), tr("follow_system")])
-        self.theme_combo.setCurrentIndex(2 if not isDarkTheme() else 1)
-        self.theme_combo.currentIndexChanged.connect(self.on_theme_mode_changed)
-        self.theme_combo.setFixedWidth(150)
-        appearance_card.addGroup(FluentIcon.PALETTE, tr("theme_mode"), tr("theme_mode_hint"), self.theme_combo)
-        
-        # 主题色
-        self.color_combo = ComboBox()
-        self.color_combo.addItems([
-            tr("default_blue"),
-            tr("purple"),
-            tr("green"),
-            tr("orange"),
-            tr("red"),
-            tr("pink")
-        ])
-        self.color_combo.currentIndexChanged.connect(self.on_theme_color_changed)
-        self.color_combo.setFixedWidth(200)
-        appearance_card.addGroup(FluentIcon.BRUSH, tr("theme_color"), tr("theme_color_hint"), self.color_combo)
-        
-        # 默认界面
-        self.default_page_combo = ComboBox()
-        self.default_page_combo.addItems([
-            tr("default_page_home"),
-            tr("default_page_search")
-        ])
-        self.default_page_combo.currentIndexChanged.connect(self.on_default_page_changed)
-        self.default_page_combo.setFixedWidth(150)
-        appearance_card.addGroup(FluentIcon.HOME, tr("default_page"), tr("default_page_hint"), self.default_page_combo)
-        
-        # 语言
-        self.lang_combo = ComboBox()
-        self.lang_combo.addItems(["系统默认", "简体中文", "English", "Français", "Русский", "Deutsch", "日本語", "繁體中文"])
-        self.lang_combo.setCurrentIndex(0)  # 默认为系统默认
-        self.lang_combo.currentIndexChanged.connect(self.on_language_changed)
-        self.lang_combo.setFixedWidth(150)
-        appearance_card.addGroup(FluentIcon.LANGUAGE, tr("language"), tr("language_hint"), self.lang_combo)
-        
-        # 窗口特效
-        self.effect_combo = ComboBox()
-        self.effect_combo.addItems([
-            tr("effect_none"),
-            tr("effect_mica")
-        ])
-        self.effect_combo.currentIndexChanged.connect(self.on_window_effect_changed)
-        self.effect_combo.setFixedWidth(150)
-        appearance_card.addGroup(FluentIcon.PALETTE, tr("window_effect"), tr("window_effect_hint"), self.effect_combo)
-        
-        layout.addWidget(appearance_card)
-
-        # 日志显示卡片
-        log_card = CardWidget(self)
-        log_card_layout = QVBoxLayout(log_card)
-        log_card_layout.setContentsMargins(20, 16, 20, 16)
-        log_card_layout.setSpacing(8)
-
-        log_header = QHBoxLayout()
-        log_header.addWidget(BodyLabel(tr("settings_log_title"), log_card))
-        log_header.addStretch(1)
-        clear_log_btn = TransparentToolButton(FluentIcon.DELETE, log_card)
-        clear_log_btn.setToolTip(tr("settings_clear_log"))
-        clear_log_btn.clicked.connect(self._clear_log)
-        log_header.addWidget(clear_log_btn)
-        log_card_layout.addLayout(log_header)
-
-        self.log_view = TextEdit(log_card)
-        self.log_view.setReadOnly(True)
-        self.log_view.setFixedHeight(200)
-        self.log_view.setStyleSheet(
-            "TextEdit { background: rgba(0,0,0,0.12); border-radius: 6px; "
-            "font-family: Consolas, monospace; font-size: 12px; padding: 8px; }"
-        )
-        log_card_layout.addWidget(self.log_view)
-        layout.addWidget(log_card)
-
-        # 按钮行
-        button_layout = QHBoxLayout()
-        
-        self.reset_btn = PushButton(tr("reset_to_default"))
-        self.reset_btn.clicked.connect(self.reset_settings)
-        self.reset_btn.setFixedWidth(120)
-        button_layout.addWidget(self.reset_btn)
-        
-        self.thanks_btn = PushButton(tr("thanks"))
-        self.thanks_btn.clicked.connect(self.show_thanks)
-        self.thanks_btn.setFixedWidth(80)
-        button_layout.addWidget(self.thanks_btn)
-        
-        self.donate_btn = PushButton(tr("donate"))
-        self.donate_btn.clicked.connect(self.show_donate)
-        self.donate_btn.setFixedWidth(80)
-        button_layout.addWidget(self.donate_btn)
-        
-        self.github_btn = HyperlinkButton("https://github.com/zhouchentao666/Fluent-Install", "GitHub")
-        self.github_btn.setFixedWidth(70)
-        button_layout.addWidget(self.github_btn)
-        
-        self.qq_btn = HyperlinkButton("https://qm.qq.com/q/gtTLap5Jw4", "Q群")
-        self.qq_btn.setFixedWidth(50)
-        button_layout.addWidget(self.qq_btn)
-        
-        self.tg_group_btn = HyperlinkButton("https://t.me/+vTrqXKpRJE9kNmVl", "TG")
-        self.tg_group_btn.setFixedWidth(50)
-        button_layout.addWidget(self.tg_group_btn)
-        
-        self.discord_btn = HyperlinkButton("https://discord.gg/2qh68QRMuA", "Discord")
-        self.discord_btn.setFixedWidth(70)
-        button_layout.addWidget(self.discord_btn)
-        
-        button_layout.addStretch(1)
-        layout.addLayout(button_layout)
 
     def _append_log(self, level: str, msg: str):
         """将日志追加到日志视图"""
@@ -4270,16 +4192,182 @@ class SettingsPage(ScrollArea):
         if not self._ui_built:
             self._ui_built = True
             from PyQt6.QtCore import QTimer
-            # 推迟到事件循环空闲，避免阻塞页面切换动画
             QTimer.singleShot(0, self._build_and_load)
-        elif not self._config_loaded:
-            self._config_loaded = True
-            self.load_config()
-            self._setup_auto_save_listeners()
+        # _config_loaded 由 _prebuild_settings 或 _build_and_load 负责，showEvent 不重复加载
 
     def _build_and_load(self):
-        """构建 UI 后立即加载配置"""
-        self._build_ui()
+        """分帧构建 UI，避免主线程卡顿"""
+        from PyQt6.QtCore import QTimer
+
+        layout = QVBoxLayout(self._container)
+        layout.setContentsMargins(30, 30, 30, 30)
+        layout.setSpacing(20)
+        self._build_layout = layout
+
+        # 第1帧：标题 + Steam路径卡片
+        title = SubtitleLabel(tr("settings"), self)
+        layout.addWidget(title)
+        settings_card = SettinsCard(self)
+        layout.addWidget(settings_card)
+        self.steam_path_edit = settings_card.steam_path_edit
+        self.token_edit = settings_card.token_edit
+
+        QTimer.singleShot(0, self._build_phase2)
+
+    def _build_phase2(self):
+        """第2帧：应用配置卡片"""
+        from PyQt6.QtCore import QTimer
+        layout = self._build_layout
+
+        app_config_card = GroupHeaderCardWidget(self)
+        app_config_card.setTitle(tr("application_config"))
+        app_config_card.setBorderRadius(8)
+
+        self.debug_check = SwitchButton()
+        self.debug_check.setChecked(False)
+        app_config_card.addGroup(FluentIcon.DEVELOPER_TOOLS, tr("debug_mode"), tr("debug_mode_hint"), self.debug_check)
+
+        self.logging_check = SwitchButton()
+        self.logging_check.setChecked(True)
+        app_config_card.addGroup(FluentIcon.SAVE, tr("save_log_files"), tr("save_log_files_hint"), self.logging_check)
+
+        self.unlocker_combo = ComboBox()
+        self.unlocker_combo.addItems([tr("auto_detect"), tr("force_steamtools"), tr("force_greenluma")])
+        self.unlocker_combo.setCurrentIndex(0)
+        self.unlocker_combo.setFixedWidth(180)
+        app_config_card.addGroup(FluentIcon.SETTING, tr("unlocker_mode"), tr("force_unlocker_hint"), self.unlocker_combo)
+
+        self.st_fixed_check = SwitchButton()
+        self.st_fixed_check.setChecked(False)
+        self.st_fixed_check.setToolTip(tr("st_fixed_tooltip"))
+        app_config_card.addGroup(FluentIcon.SETTING, tr("st_settings"), tr("st_settings_hint"), self.st_fixed_check)
+
+        self.dlc_timeout_spinbox = SpinBox()
+        self.dlc_timeout_spinbox.setRange(5, 600)
+        self.dlc_timeout_spinbox.setValue(60)
+        self.dlc_timeout_spinbox.setSuffix(" s")
+        self.dlc_timeout_spinbox.setFixedWidth(120)
+        app_config_card.addGroup(FluentIcon.SPEED_HIGH, tr("dlc_timeout"), tr("dlc_timeout_hint"), self.dlc_timeout_spinbox)
+
+        self.timeout_spinbox = SpinBox()
+        self.timeout_spinbox.setRange(10, 300)
+        self.timeout_spinbox.setValue(30)
+        self.timeout_spinbox.setSuffix(" s")
+        self.timeout_spinbox.setFixedWidth(120)
+        app_config_card.addGroup(FluentIcon.SPEED_HIGH, tr("download_timeout"), tr("download_timeout_hint"), self.timeout_spinbox)
+
+        layout.addWidget(app_config_card)
+        QTimer.singleShot(0, self._build_phase3)
+
+    def _build_phase3(self):
+        """第3帧：外观卡片"""
+        from PyQt6.QtCore import QTimer
+        layout = self._build_layout
+
+        appearance_card = GroupHeaderCardWidget(self)
+        appearance_card.setTitle(tr("appearance"))
+        appearance_card.setBorderRadius(8)
+
+        self.theme_combo = ComboBox()
+        self.theme_combo.addItems([tr("light_theme"), tr("dark_theme"), tr("follow_system")])
+        self.theme_combo.setCurrentIndex(2 if not isDarkTheme() else 1)
+        self.theme_combo.currentIndexChanged.connect(self.on_theme_mode_changed)
+        self.theme_combo.setFixedWidth(150)
+        appearance_card.addGroup(FluentIcon.PALETTE, tr("theme_mode"), tr("theme_mode_hint"), self.theme_combo)
+
+        self.color_combo = ComboBox()
+        self.color_combo.addItems([tr("default_blue"), tr("purple"), tr("green"), tr("orange"), tr("red"), tr("pink")])
+        self.color_combo.currentIndexChanged.connect(self.on_theme_color_changed)
+        self.color_combo.setFixedWidth(200)
+        appearance_card.addGroup(FluentIcon.BRUSH, tr("theme_color"), tr("theme_color_hint"), self.color_combo)
+
+        self.default_page_combo = ComboBox()
+        self.default_page_combo.addItems([tr("default_page_home"), tr("default_page_search")])
+        self.default_page_combo.currentIndexChanged.connect(self.on_default_page_changed)
+        self.default_page_combo.setFixedWidth(150)
+        appearance_card.addGroup(FluentIcon.HOME, tr("default_page"), tr("default_page_hint"), self.default_page_combo)
+
+        self.lang_combo = ComboBox()
+        self.lang_combo.addItems(["系统默认", "简体中文", "English", "Français", "Русский", "Deutsch", "日本語", "繁體中文"])
+        self.lang_combo.setCurrentIndex(0)
+        self.lang_combo.currentIndexChanged.connect(self.on_language_changed)
+        self.lang_combo.setFixedWidth(150)
+        appearance_card.addGroup(FluentIcon.LANGUAGE, tr("language"), tr("language_hint"), self.lang_combo)
+
+        self.effect_combo = ComboBox()
+        self.effect_combo.addItems([tr("effect_none"), tr("effect_mica")])
+        self.effect_combo.currentIndexChanged.connect(self.on_window_effect_changed)
+        self.effect_combo.setFixedWidth(150)
+        appearance_card.addGroup(FluentIcon.PALETTE, tr("window_effect"), tr("window_effect_hint"), self.effect_combo)
+
+        layout.addWidget(appearance_card)
+        QTimer.singleShot(0, self._build_phase4)
+
+    def _build_phase4(self):
+        """第4帧：日志卡片 + 按钮行，完成后加载配置"""
+        layout = self._build_layout
+
+        log_card = CardWidget(self)
+        log_card_layout = QVBoxLayout(log_card)
+        log_card_layout.setContentsMargins(20, 16, 20, 16)
+        log_card_layout.setSpacing(8)
+        log_header = QHBoxLayout()
+        log_header.addWidget(BodyLabel(tr("settings_log_title"), log_card))
+        log_header.addStretch(1)
+        clear_log_btn = TransparentToolButton(FluentIcon.DELETE, log_card)
+        clear_log_btn.setToolTip(tr("settings_clear_log"))
+        clear_log_btn.clicked.connect(self._clear_log)
+        log_header.addWidget(clear_log_btn)
+        log_card_layout.addLayout(log_header)
+        self.log_view = TextEdit(log_card)
+        self.log_view.setReadOnly(True)
+        self.log_view.setFixedHeight(200)
+        self.log_view.setStyleSheet(
+            "TextEdit { background: rgba(0,0,0,0.12); border-radius: 6px; "
+            "font-family: Consolas, monospace; font-size: 12px; padding: 8px; }"
+        )
+        log_card_layout.addWidget(self.log_view)
+        layout.addWidget(log_card)
+
+        button_layout = QHBoxLayout()
+        self.reset_btn = PushButton(tr("reset_to_default"))
+        self.reset_btn.clicked.connect(self.reset_settings)
+        self.reset_btn.setFixedWidth(120)
+        button_layout.addWidget(self.reset_btn)
+        self.check_update_btn = PushButton(tr("check_update"))
+        self.check_update_btn.clicked.connect(self.check_for_updates)
+        self.check_update_btn.setFixedWidth(100)
+        button_layout.addWidget(self.check_update_btn)
+        self.thanks_btn = PushButton(tr("thanks"))
+        self.thanks_btn.clicked.connect(self.show_thanks)
+        self.thanks_btn.setFixedWidth(80)
+        button_layout.addWidget(self.thanks_btn)
+        self.donate_btn = PushButton(tr("donate"))
+        self.donate_btn.clicked.connect(self.show_donate)
+        self.donate_btn.setFixedWidth(80)
+        button_layout.addWidget(self.donate_btn)
+        self.github_btn = HyperlinkButton("https://github.com/zhouchentao666/Fluent-Install", "GitHub")
+        self.github_btn.setFixedWidth(70)
+        button_layout.addWidget(self.github_btn)
+        self.qq_btn = HyperlinkButton("https://qm.qq.com/q/gtTLap5Jw4", "Q群")
+        self.qq_btn.setFixedWidth(50)
+        button_layout.addWidget(self.qq_btn)
+        self.tg_group_btn = HyperlinkButton("https://t.me/+vTrqXKpRJE9kNmVl", "TG")
+        self.tg_group_btn.setFixedWidth(50)
+        button_layout.addWidget(self.tg_group_btn)
+        self.discord_btn = HyperlinkButton("https://discord.gg/2qh68QRMuA", "Discord")
+        self.discord_btn.setFixedWidth(70)
+        button_layout.addWidget(self.discord_btn)
+        button_layout.addStretch(1)
+        layout.addLayout(button_layout)
+        layout.addStretch(1)
+
+        # 刷入缓冲日志
+        for level, msg in self._pending_logs:
+            self._append_log(level, msg)
+        self._pending_logs.clear()
+
+        # UI 全部就绪，加载配置
         if not self._config_loaded:
             self._config_loaded = True
             self.load_config()
@@ -4459,6 +4547,76 @@ class SettingsPage(ScrollArea):
             pass
         return "zh_CN"
     
+    def check_for_updates(self):
+        """检查更新"""
+        self.check_update_btn.setEnabled(False)
+        self.check_update_btn.setText(tr("checking"))
+
+        async def _check():
+            async with CaiBackend() as backend:
+                has_update, info = await backend.check_for_updates()
+                return has_update, info
+
+        _replace_worker(getattr(self, '_update_worker', None))
+        worker = AsyncWorker(_check())
+        self._update_worker = worker
+
+        def on_result(result):
+            self._update_worker = None
+            self.check_update_btn.setEnabled(True)
+            self.check_update_btn.setText(tr("check_update"))
+            has_update, info = result
+            if has_update:
+                from qfluentwidgets import MessageBoxBase, TitleLabel, BodyLabel
+                from PyQt6.QtWidgets import QVBoxLayout
+                from PyQt6.QtCore import Qt
+
+                class UpdateDialog(MessageBoxBase):
+                    def __init__(self, parent=None):
+                        super().__init__(parent)
+                        self.titleLabel = TitleLabel(tr("update_available"), self)
+                        body = BodyLabel(
+                            f"{tr('current_version')}: {info.get('current_version', '')}\n"
+                            f"{tr('latest_version')}: {info.get('latest_version', '')}\n\n"
+                            f"{info.get('release_body', '') or tr('no_release_notes')}",
+                            self
+                        )
+                        body.setWordWrap(True)
+                        self.viewLayout.addWidget(self.titleLabel)
+                        self.viewLayout.addWidget(body)
+                        self.yesButton.setText(tr("go_to_download"))
+                        self.cancelButton.setText(tr("cancel"))
+                        self.widget.setMinimumWidth(420)
+
+                dialog = UpdateDialog(self.window())
+                if dialog.exec():
+                    QDesktopServices.openUrl(QUrl(info.get('release_url', f"https://github.com/{GITHUB_REPO}/releases")))
+            else:
+                InfoBar.success(
+                    title=tr("already_latest"),
+                    content=tr("already_latest_content"),
+                    parent=self.window(),
+                    position=InfoBarPosition.TOP,
+                    duration=3000
+                )
+
+        def on_error(error):
+            self._update_worker = None
+            self.check_update_btn.setEnabled(True)
+            self.check_update_btn.setText(tr("check_update"))
+            InfoBar.error(
+                title=tr("check_update_failed"),
+                content=error,
+                parent=self.window(),
+                position=InfoBarPosition.TOP,
+                duration=4000
+            )
+
+        worker.result_ready.connect(on_result)
+        worker.error.connect(on_error)
+        worker.finished.connect(worker.deleteLater)
+        worker.start()
+
     def show_thanks(self):
         """显示鸣谢对话框"""
         from PyQt6.QtWidgets import QVBoxLayout, QHBoxLayout, QWidget
@@ -4535,52 +4693,81 @@ class SettingsPage(ScrollArea):
         ThanksDialog(self.window()).exec()
     
     def show_donate(self):
-        """显示捐赠对话框"""
-        from PyQt6.QtWidgets import QHBoxLayout, QVBoxLayout, QLabel
+        """显示捐赠对话框（滑动布局，我的在上，原作者在下）"""
+        from PyQt6.QtWidgets import QHBoxLayout, QVBoxLayout, QLabel, QWidget
         from PyQt6.QtCore import Qt, QUrl
         from PyQt6.QtGui import QPixmap
         from PyQt6.QtNetwork import QNetworkAccessManager, QNetworkRequest, QNetworkReply
+
+        # 收款码数据：(section_title, wechat_url, alipay_url)
+        sections = [
+            (
+                tr("donate_title"),
+                "https://pub-141831e61e69445289222976a15b6fb3.r2.dev/Image_to_url_V2/6188237576876003068_121-imagetourl.cloud-1774005511802-siuw87.jpg",
+                "https://pub-141831e61e69445289222976a15b6fb3.r2.dev/Image_to_url_V2/6188237576876003069_121-imagetourl.cloud-1774005513945-35nyye.jpg",
+            ),
+            (
+                "赞助原项目作者及资源代码帮助",
+                "https://pub-141831e61e69445289222976a15b6fb3.r2.dev/Image_to_url_V2/D802B1D90E33AFCF696B5F13BAB74457-imagetourl.cloud-1774703169429-179e1b.png",
+                "https://pub-141831e61e69445289222976a15b6fb3.r2.dev/Image_to_url_V2/756ED1C8EA7FF43FBE304E86B1C58C49-imagetourl.cloud-1774703169610-iod0j3.jpg",
+            ),
+        ]
 
         class DonateDialog(MessageBoxBase):
             def __init__(self, parent=None):
                 super().__init__(parent)
                 self.titleLabel = TitleLabel(tr("donate_title"), self)
-                self._nam = QNetworkAccessManager(self)  # 绑定到 dialog，随 dialog 销毁
+                self._nam = QNetworkAccessManager(self)
 
-                desc = BodyLabel(tr("donate_desc"), self)
-                desc.setAlignment(Qt.AlignmentFlag.AlignCenter)
-                desc.setWordWrap(True)
+                scroll = SingleDirectionScrollArea(orient=Qt.Orientation.Vertical)
+                scroll.setWidgetResizable(True)
+                scroll.setFixedHeight(420)
+                scroll.enableTransparentBackground()
 
-                qr_layout = QHBoxLayout()
-                qr_layout.setSpacing(24)
+                inner = QWidget()
+                inner_layout = QVBoxLayout(inner)
+                inner_layout.setContentsMargins(4, 4, 4, 4)
+                inner_layout.setSpacing(20)
 
-                def make_qr_box(title_text):
-                    box = QVBoxLayout()
-                    title = BodyLabel(title_text)
-                    title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-                    img = QLabel(tr("donate_loading"))
-                    img.setAlignment(Qt.AlignmentFlag.AlignCenter)
-                    img.setFixedSize(200, 200)
-                    img.setStyleSheet("border: 1px solid rgba(128,128,128,0.3); border-radius: 6px;")
-                    box.addWidget(title)
-                    box.addWidget(img)
-                    return box, img
+                self._img_labels = []
 
-                wechat_box, self.wechat_img = make_qr_box(tr("donate_wechat"))
-                alipay_box, self.alipay_img = make_qr_box(tr("donate_alipay"))
-                qr_layout.addLayout(wechat_box)
-                qr_layout.addLayout(alipay_box)
+                for section_title, wechat_url, alipay_url in sections:
+                    sec_label = BodyLabel(section_title)
+                    sec_label.setStyleSheet("font-weight: bold;")
+                    sec_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+                    inner_layout.addWidget(sec_label)
+
+                    qr_layout = QHBoxLayout()
+                    qr_layout.setSpacing(24)
+                    qr_layout.setAlignment(Qt.AlignmentFlag.AlignHCenter)
+
+                    for col_title, url in [(tr("donate_wechat"), wechat_url), (tr("donate_alipay"), alipay_url)]:
+                        col = QVBoxLayout()
+                        col.setAlignment(Qt.AlignmentFlag.AlignHCenter)
+                        lbl_title = BodyLabel(col_title)
+                        lbl_title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+                        img = QLabel(tr("donate_loading"))
+                        img.setAlignment(Qt.AlignmentFlag.AlignCenter)
+                        img.setFixedSize(240, 240)
+                        img.setStyleSheet("border: 1px solid rgba(128,128,128,0.3); border-radius: 6px;")
+                        col.addWidget(lbl_title)
+                        col.addWidget(img)
+                        qr_layout.addLayout(col)
+                        self._img_labels.append((img, url))
+
+                    inner_layout.addLayout(qr_layout)
+
+                inner_layout.addStretch(1)
+                scroll.setWidget(inner)
 
                 self.viewLayout.addWidget(self.titleLabel)
-                self.viewLayout.addWidget(desc)
-                self.viewLayout.addLayout(qr_layout)
-
+                self.viewLayout.addWidget(scroll)
                 self.yesButton.setText("OK")
                 self.cancelButton.hide()
-                self.widget.setMinimumWidth(480)
+                self.widget.setMinimumWidth(500)
 
-                self._load_image(wechat_url, self.wechat_img)
-                self._load_image(alipay_url, self.alipay_img)
+                for img, url in self._img_labels:
+                    self._load_image(url, img)
 
             def _load_image(self, url, label):
                 reply = self._nam.get(QNetworkRequest(QUrl(url)))
@@ -4591,23 +4778,25 @@ class SettingsPage(ScrollArea):
                             pixmap = QPixmap()
                             pixmap.loadFromData(reply.readAll())
                             if not pixmap.isNull():
-                                label.setPixmap(pixmap.scaled(
-                                    200, 200,
+                                # 按 label 实际像素尺寸缩放，保持清晰
+                                dpr = label.devicePixelRatio()
+                                target = int(240 * dpr)
+                                scaled = pixmap.scaled(
+                                    target, target,
                                     Qt.AspectRatioMode.KeepAspectRatio,
                                     Qt.TransformationMode.SmoothTransformation
-                                ))
+                                )
+                                scaled.setDevicePixelRatio(dpr)
+                                label.setPixmap(scaled)
                                 label.setText("")
                                 return
                         label.setText(tr("donate_load_failed"))
                     except RuntimeError:
-                        pass  # dialog 已关闭，label 已销毁，忽略
+                        pass
                     finally:
                         reply.deleteLater()
 
                 reply.finished.connect(on_finished)
-
-        wechat_url = "https://pub-141831e61e69445289222976a15b6fb3.r2.dev/Image_to_url_V2/6188237576876003069_121-imagetourl.cloud-1774005513945-35nyye.jpg"
-        alipay_url = "https://pub-141831e61e69445289222976a15b6fb3.r2.dev/Image_to_url_V2/6188237576876003068_121-imagetourl.cloud-1774005511802-siuw87.jpg"
 
         DonateDialog(self.window()).exec()
     
@@ -4831,6 +5020,7 @@ class SettingsPage(ScrollArea):
             
             return True
         
+        _replace_worker(getattr(self, 'worker', None))
         self.worker = AsyncWorker(_save())
         self.worker.result_ready.connect(self.on_save_success)
         self.worker.error.connect(self.on_save_error)
@@ -4890,6 +5080,7 @@ class SettingsPage(ScrollArea):
                 
                 return True
             
+            _replace_worker(getattr(self, 'worker', None))
             self.worker = AsyncWorker(_reset())
             self.worker.result_ready.connect(self.on_reset_success)
             self.worker.error.connect(self.on_reset_error)
@@ -4995,7 +5186,7 @@ class MainWindow(MSFluentWindow):
 
         # 启动后台预构建设置页 UI，避免首次点击卡顿
         from PyQt6.QtCore import QTimer
-        QTimer.singleShot(500, self._prebuild_settings)
+        QTimer.singleShot(1500, self._prebuild_settings)
     
     def switch_to_default_page(self):
         """切换到默认界面"""
@@ -5020,10 +5211,14 @@ class MainWindow(MSFluentWindow):
             self.switchTo(self.home_page)
 
     def _prebuild_settings(self):
-        """应用启动后预构建设置页 UI，消除首次点击卡顿"""
+        """应用启动后预构建设置页 UI 并预加载配置，消除首次点击卡顿"""
         if not self.settings_page._ui_built:
             self.settings_page._ui_built = True
             self.settings_page._build_ui()
+        if not self.settings_page._config_loaded:
+            self.settings_page._config_loaded = True
+            self.settings_page.load_config()
+            self.settings_page._setup_auto_save_listeners()
     
     def on_restart_steam(self):
         """重启 Steam"""
@@ -5035,14 +5230,7 @@ class MainWindow(MSFluentWindow):
         
         if dialog.exec():
             # 用户点击确认
-            self.restart_steam_worker = None
-            
-            async def _restart():
-                async with CaiBackend() as backend:
-                    await backend.initialize()
-                    success = backend.restart_steam()
-                    return success
-            
+            _replace_worker(getattr(self, 'restart_steam_worker', None))
             self.restart_steam_worker = AsyncWorker(_restart())
             self.restart_steam_worker.result_ready.connect(self.on_restart_complete)
             self.restart_steam_worker.error.connect(self.on_restart_error)
@@ -5219,3 +5407,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
