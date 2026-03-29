@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Tuple, Any, List, Dict, Literal
 from urllib.parse import quote
 
-CURRENT_VERSION = "1.9.5"  # 当前版本号
+CURRENT_VERSION = "1.9.8"  # 当前版本号
 GITHUB_REPO = "zhouchentao666/Fluent-Install"
 
 # --- LOGGING SETUP ---
@@ -38,6 +38,7 @@ LOG_COLORS = {
 # --- MODIFIED: Added Custom_Repos setting ---
 DEFAULT_CONFIG = {
     "Github_Personal_Token": "",
+    "ManifestAPIKey": "",
     "Custom_Steam_Path": "",
     "debug_mode": False,
     "logging_files": True,
@@ -140,6 +141,7 @@ class CaiBackend:
         self.unlocker_type = None
         self.lock = asyncio.Lock()
         self.temp_path = self.project_root / 'temp'
+        self.manifest_record_path = self.project_root / 'manifest_records.json'
         self.log = self._init_log()
         self.name_cache: Dict[str, str] = _global_name_cache  # 引用全局缓存
 
@@ -670,6 +672,84 @@ class CaiBackend:
         data.sort(key=lambda x: int(x.get('appid', 0)) if x.get('appid', '0').isdigit() else 0, reverse=True)
         return data, appids
     
+    def _load_manifest_records(self) -> Dict[str, List[str]]:
+        """加载 manifest 跟踪记录。格式: {appid: [filename, ...]}"""
+        try:
+            if not self.manifest_record_path.exists():
+                return {}
+            with open(self.manifest_record_path, 'r', encoding='utf-8') as f:
+                data = json.loads(f.read())
+            if isinstance(data, dict):
+                return {str(k): [str(x) for x in v if isinstance(x, str)] for k, v in data.items() if isinstance(v, list)}
+        except Exception as e:
+            self.log.warning(f"读取 manifest_records.json 失败，将使用空记录: {e}")
+        return {}
+
+    def _save_manifest_records(self, records: Dict[str, List[str]]):
+        """保存 manifest 跟踪记录。"""
+        try:
+            with open(self.manifest_record_path, 'w', encoding='utf-8') as f:
+                f.write(json.dumps(records, ensure_ascii=False, indent=2))
+        except Exception as e:
+            self.log.warning(f"保存 manifest_records.json 失败: {e}")
+
+    def _record_manifests_for_app(self, app_id: str, manifest_files: List[str]):
+        """记录某 AppID 下载过的 manifest 文件名。"""
+        app_id = str(app_id)
+        if not app_id or not manifest_files:
+            return
+        records = self._load_manifest_records()
+        existing = set(records.get(app_id, []))
+        existing.update(manifest_files)
+        records[app_id] = sorted(existing)
+        self._save_manifest_records(records)
+
+    def _delete_recorded_manifests_for_app(self, app_id: str) -> int:
+        """按记录删除某 AppID 对应的 manifest 文件，并移除记录。"""
+        app_id = str(app_id)
+        if not app_id:
+            return 0
+        records = self._load_manifest_records()
+        filenames = records.get(app_id, [])
+        if not filenames:
+            return 0
+        removed = 0
+        target_dirs = [self.steam_path / 'depotcache', self.steam_path / 'config' / 'depotcache']
+        for filename in filenames:
+            for target_dir in target_dirs:
+                try:
+                    path = target_dir / filename
+                    if path.exists() and path.is_file():
+                        os.remove(path)
+                        removed += 1
+                except Exception as e:
+                    self.log.warning(f"删除记录的清单文件失败 {filename}: {e}")
+        records.pop(app_id, None)
+        self._save_manifest_records(records)
+        return removed
+
+    def _remove_backup_files_for_item(self, file_type: str, filename: str | None, appid: str | None) -> int:
+        """删除 backup 目录中与条目对应的备份文件，避免刷新时自动恢复。"""
+        removed = 0
+        backup_root = self.project_root / 'backup'
+        backup_dir = backup_root / ('stplug-in' if file_type == 'st' else 'AppList')
+        if not backup_dir.exists():
+            return 0
+        candidates = set()
+        if filename:
+            candidates.add(filename)
+        if appid and str(appid).isdigit():
+            candidates.add(f"{appid}.lua" if file_type == 'st' else f"{appid}.txt")
+        for candidate in candidates:
+            try:
+                path = backup_dir / candidate
+                if path.exists() and path.is_file():
+                    os.remove(path)
+                    removed += 1
+            except Exception as e:
+                self.log.warning(f"删除备份文件失败 {candidate}: {e}")
+        return removed
+
     def delete_managed_files(self, file_type: str, items: List[Dict]) -> Dict:
         """根据类型和项目列表删除文件, 并清理关联的manifest。"""
         if not self.steam_path or not self.steam_path.exists():
@@ -685,6 +765,8 @@ class CaiBackend:
             return {"success": False, "message": f"未知的类型: {file_type}。"}
 
         deleted_count, failed, manifests_deleted_count = 0, [], 0
+        backup_deleted_count = 0
+        processed_appids = set()
         
         for item in items:
             try:
@@ -694,10 +776,10 @@ class CaiBackend:
 
                 # 步骤2: 清理物理文件和关联的 manifest
                 filename = item.get('filename')
+                appid = item.get('appid')
                 if filename and "缺少" not in filename:
                     file_path = base_path / filename
                     if file_path.exists() and file_path.is_file():
-                        # --- NEW: Logic to clean up associated manifest files ---
                         if file_type == 'st' and filename.endswith('.lua'):
                             try:
                                 content = file_path.read_text(encoding='utf-8', errors='ignore')
@@ -716,9 +798,16 @@ class CaiBackend:
                             except Exception as e:
                                 self.log.error(f"清理 {filename} 的清单时失败: {e}")
                         
-                        # 删除主文件
                         os.remove(file_path)
                         deleted_count += 1
+
+                # 步骤3: 清理 backup 目录，防止刷新时自动恢复
+                backup_deleted_count += self._remove_backup_files_for_item(file_type, filename, appid)
+
+                # 步骤4: 按记录清理该 AppID 下载的 manifest 文件
+                if appid and str(appid).isdigit() and appid not in processed_appids:
+                    manifests_deleted_count += self._delete_recorded_manifests_for_app(str(appid))
+                    processed_appids.add(appid)
             except Exception as e:
                 failed.append(f"{item.get('filename', item.get('appid'))}: {e}")
 
@@ -726,7 +815,9 @@ class CaiBackend:
         if deleted_count > 0:
             message += f" 删除了 {deleted_count} 个文件。"
         if manifests_deleted_count > 0:
-             message += f" 清理了 {manifests_deleted_count} 个关联清单文件。"
+            message += f" 清理了 {manifests_deleted_count} 个关联清单文件。"
+        if backup_deleted_count > 0:
+            message += f" 清理了 {backup_deleted_count} 个备份文件。"
         if failed:
             message += f" 失败条目: {', '.join(failed)}"
         
@@ -789,7 +880,71 @@ class CaiBackend:
                             found_count += 1
 
                     if found_count == 0:
-                        return {"success": False, "message": "未在本地找到对应 Manifest 文件，无法固定版本"}
+                        # 本地没有 manifest，自动尝试多个源下载
+                        app_id_match = re.search(r'addappid\(\s*(\d+)\s*\)', content)
+                        app_id = app_id_match.group(1) if app_id_match else None
+                        if not app_id:
+                            return {"success": False, "message": "未在本地找到 Manifest 文件，且无法识别 AppID"}
+
+                        self.log.info(f"本地无 Manifest，尝试自动下载 AppID {app_id} 的清单...")
+                        # 只用能把 manifest 文件写入 depotcache 的源（不用 steamautocracks_v2，它仅密钥且会覆盖 lua）
+                        download_sources = [
+                            "sac-other",
+                            "cysaw",
+                            "MHub",
+                            "walftech",
+                            "sudama",
+                        ]
+                        downloaded = False
+                        for src in download_sources:
+                            self.log.info(f"尝试从 {src} 下载清单...")
+                            try:
+                                ok = await self.process_zip_source(
+                                    app_id, src, "steamtools",
+                                    use_st_auto_update=False,
+                                    add_all_dlc=False, patch_depot_key=False
+                                )
+                                if ok:
+                                    self.log.info(f"从 {src} 下载清单成功")
+                                    downloaded = True
+                                    break
+                            except Exception as e:
+                                self.log.warning(f"{src} 下载失败: {e}")
+
+                        if not downloaded:
+                            return {"success": False, "message": "自动下载清单失败，请手动入库后再切换固定版本"}
+
+                        # 下载成功后重新读取 lua 文件（process_zip_source 已写入 setManifestid）
+                        async with aiofiles.open(file_path, 'r', encoding='utf-8') as f:
+                            content = await f.read()
+                        is_now_fixed = bool(re.search(r'^\s*setManifestid\(', content, re.MULTILINE))
+                        if is_now_fixed:
+                            return {"success": True, "message": f"已自动下载清单并切换为固定版本"}
+                        # 如果 lua 被重写但没有 setManifestid（自动更新模式写入），再扫一次 depotcache
+                        for depot_id in depot_ids:
+                            found_manifest_id = None
+                            for search_dir in search_paths:
+                                if not search_dir.exists():
+                                    continue
+                                candidates = list(search_dir.glob(f"{depot_id}_*.manifest"))
+                                if candidates:
+                                    m = re.match(rf"{depot_id}_(\d+)\.manifest", candidates[0].name)
+                                    if m:
+                                        found_manifest_id = m.group(1)
+                                        break
+                            if found_manifest_id:
+                                manifest_lines.append(f'setManifestid({depot_id}, "{found_manifest_id}")')
+                                found_count += 1
+
+                        if found_count == 0:
+                            return {"success": False, "message": "清单已下载但无法匹配 Depot，请重试"}
+
+                        new_content = content.rstrip() + "\n\n-- Fixed Manifests (Generated)\n" + "\n".join(manifest_lines) + "\n"
+                        action_msg = f"已自动下载清单并切换为固定版本 (匹配到 {found_count} 个文件)"
+                        async with aiofiles.open(file_path, 'w', encoding='utf-8') as f:
+                            await f.write(new_content)
+                        self.log.info(f"ST文件 {filename} 版本切换成功: {action_msg}")
+                        return {"success": True, "message": action_msg}
 
                     # 在文件末尾添加固定版本的manifest配置
                     new_content = content.rstrip() + "\n\n-- Fixed Manifests (Generated)\n" + "\n".join(manifest_lines) + "\n"
@@ -2021,8 +2176,8 @@ class CaiBackend:
                     self.log.warning(f"未找到 depot {depot_id} 的 depotkey，自动跳过")
             
             if not valid_depots:
-                self.log.warning(f"AppID {app_id} 没有找到任何有效的 depot 密钥，这是正常情况，可能此APP ID没有创意工坊密钥或者暂未收录，不影响本体使用")
-                return False
+                self.log.warning(f"AppID {app_id} 没有找到任何有效的 depot 密钥，此 AppID 可能没有创意工坊密钥或暂未收录，不影响本体使用")
+                return True  # 仅密钥源，无密钥视为正常完成
             
             # 4. 根据解锁工具类型处理
             if unlocker_type == "steamtools":
@@ -2384,6 +2539,20 @@ class CaiBackend:
             self.log.warning(f"恢复入库文件时出错: {e}")
         return restored
 
+    def _update_steamtools_config(self):
+        """写入 SteamTools 注册表配置，确保重启后解锁生效"""
+        try:
+            key = winreg.CreateKeyEx(winreg.HKEY_CURRENT_USER, r"Software\Valve\Steamtools", 0, winreg.KEY_SET_VALUE)
+            winreg.SetValueEx(key, "ActivateUnlockMode", 0, winreg.REG_SZ, "true")
+            winreg.SetValueEx(key, "AlwaysStayUnlocked", 0, winreg.REG_SZ, "true")
+            winreg.SetValueEx(key, "notUnlockDepot", 0, winreg.REG_SZ, "false")
+            winreg.CloseKey(key)
+            self.log.info("已更新 SteamTools 注册表配置")
+            return True
+        except Exception as e:
+            self.log.warning(f"更新 SteamTools 注册表配置失败（非致命）: {e}")
+            return False
+
     def restart_steam(self) -> bool:
         if not self.steam_path:
             self.log.error("无法重启 Steam：未找到 Steam 路径。")
@@ -2393,79 +2562,11 @@ class CaiBackend:
             self.log.error(f"无法启动 Steam：在 '{self.steam_path}' 目录下未找到 steam.exe。")
             return False
         try:
-            # ── 1. 备份入库文件，防止 Steam 更新清除 ──
-            backup_dir = self.project_root / 'backup'
-            st_backup = backup_dir / 'stplug-in'
-            gl_backup = backup_dir / 'AppList'
-            st_src = self.steam_path / 'config' / 'stplug-in'
-            gl_src = self.steam_path / 'AppList'
-
-            if st_src.exists():
-                st_backup.mkdir(parents=True, exist_ok=True)
-                for f in st_src.glob('*.lua'):
-                    if f.name != 'steamtools.lua':
-                        shutil.copy2(f, st_backup / f.name)
-                self.log.info(f"已备份 {len(list(st_backup.glob('*.lua')))} 个 SteamTools lua 文件")
-
-            if gl_src.exists():
-                gl_backup.mkdir(parents=True, exist_ok=True)
-                for f in gl_src.glob('*.txt'):
-                    shutil.copy2(f, gl_backup / f.name)
-                self.log.info(f"已备份 {len(list(gl_backup.glob('*.txt')))} 个 GreenLuma txt 文件")
-
-            # ── 2. 关闭 Steam ──
-            self.log.info("正在尝试关闭正在运行的 Steam 进程...")
-            try:
-                subprocess.run(
-                    [str(steam_exe_path), "-shutdown"],
-                    capture_output=True, timeout=5, check=False
-                )
-            except Exception:
-                pass
-
-            steam_procs = ["steam.exe", "steamservice.exe", "steamwebhelper.exe"]
-            for proc in steam_procs:
-                subprocess.run(
-                    ["taskkill", "/F", "/IM", proc],
-                    capture_output=True, text=True, check=False
-                )
-
-            # 等待进程完全退出（最多 6 秒，每 0.5 秒检查一次）
-            self.log.info("等待 Steam 进程完全退出...")
-            for _ in range(12):
-                time.sleep(0.5)
-                result = subprocess.run(
-                    ["tasklist", "/FI", "IMAGENAME eq steam.exe"],
-                    capture_output=True, text=True, check=False
-                )
-                if "steam.exe" not in result.stdout.lower():
-                    break
-
-            # ── 3. 恢复被清除的入库文件 ──
-            restored_st = restored_gl = 0
-            if st_src.exists() and st_backup.exists():
-                for f in st_backup.glob('*.lua'):
-                    dest = st_src / f.name
-                    if not dest.exists():
-                        shutil.copy2(f, dest)
-                        restored_st += 1
-            if gl_src.exists() and gl_backup.exists():
-                for f in gl_backup.glob('*.txt'):
-                    dest = gl_src / f.name
-                    if not dest.exists():
-                        shutil.copy2(f, dest)
-                        restored_gl += 1
-            if restored_st or restored_gl:
-                self.log.info(f"已恢复 {restored_st} 个 ST 文件、{restored_gl} 个 GL 文件（Steam 更新后丢失）")
-
-            # ── 4. 启动 Steam ──
-            self.log.info(f"正在启动 Steam：{steam_exe_path}")
-            subprocess.Popen(
-                [str(steam_exe_path), "-noreactlogin"],
-                creationflags=subprocess.DETACHED_PROCESS,
-                close_fds=True
-            )
-            self.log.info("已发送重启 Steam 的指令。")
+            self._update_steamtools_config()
+            subprocess.run(["taskkill", "/F", "/IM", "steam.exe"], capture_output=True, text=True, check=False)
+            time.sleep(3)
+            subprocess.Popen([str(steam_exe_path)], creationflags=subprocess.DETACHED_PROCESS, close_fds=True)
+            self.log.info("Steam 已重启。")
             return True
         except Exception as e:
             self.log.error(f"重启 Steam 失败: {self.stack_error(e)}")

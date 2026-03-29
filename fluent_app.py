@@ -7,7 +7,7 @@ import asyncio
 import logging
 from pathlib import Path
 from typing import Optional
-from PyQt6.QtCore import Qt, QSize, pyqtSignal, QThread, pyqtSlot, QUrl, QLocale, QTranslator, QObject
+from PyQt6.QtCore import Qt, QSize, pyqtSignal, QThread, pyqtSlot, QUrl, QLocale, QTranslator, QObject, QTimer
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel
 from PyQt6.QtGui import QIcon, QPixmap, QFont, QDesktopServices
 from PyQt6.QtNetwork import QNetworkAccessManager, QNetworkRequest, QNetworkReply
@@ -21,7 +21,7 @@ from qfluentwidgets import (
     TransparentToolButton, IconWidget, FlowLayout, SearchLineEdit,
     PrimaryPushButton, CheckBox, GroupHeaderCardWidget, InfoBarIcon,
     SpinBox, HyperlinkButton, MessageBoxBase, TitleLabel,
-    RoundMenu, Action, TextEdit, SingleDirectionScrollArea
+    RoundMenu, Action, TextEdit, SingleDirectionScrollArea, ProgressBar, ToolTipFilter, ToolTipPosition
 )
 
 # 导入后端
@@ -1422,6 +1422,7 @@ class GameCard(CardWidget):
         self.moreButton = TransparentToolButton(FluentIcon.MORE, self)
         self.moreButton.setFixedSize(32, 32)
         self.moreButton.setToolTip("更多")
+        self.moreButton.installEventFilter(ToolTipFilter(self.moreButton, showDelay=150, position=ToolTipPosition.TOP))
         self.moreButton.clicked.connect(self._show_more_menu)
         
         # 版本切换按钮（仅SteamTools）
@@ -1578,6 +1579,7 @@ class GameCardGrid(CardWidget):
         self.moreButton = TransparentToolButton(FluentIcon.MORE, self)
         self.moreButton.setFixedSize(32, 32)
         self.moreButton.setToolTip("更多")
+        self.moreButton.installEventFilter(ToolTipFilter(self.moreButton, showDelay=150, position=ToolTipPosition.TOP))
         self.moreButton.clicked.connect(self._show_more_menu)
         
         # 版本切换按钮（仅SteamTools）
@@ -2598,6 +2600,7 @@ class SearchResultCard(CardWidget):
         self.moreButton = TransparentToolButton(FluentIcon.MORE, self)
         self.moreButton.setFixedSize(32, 32)
         self.moreButton.setToolTip("更多")
+        self.moreButton.installEventFilter(ToolTipFilter(self.moreButton, showDelay=150, position=ToolTipPosition.TOP))
         self.moreButton.clicked.connect(self._show_more_menu)
         
         # 设置布局
@@ -2698,6 +2701,7 @@ class SearchResultCardGrid(CardWidget):
         self.moreButton = TransparentToolButton(FluentIcon.MORE, self)
         self.moreButton.setFixedSize(32, 32)
         self.moreButton.setToolTip("更多")
+        self.moreButton.installEventFilter(ToolTipFilter(self.moreButton, showDelay=150, position=ToolTipPosition.TOP))
         self.moreButton.clicked.connect(self._show_more_menu)
         
         # 设置布局
@@ -4142,7 +4146,7 @@ class SettingsPage(ScrollArea):
         self.color_combo = None
         self.lang_combo = None
         self.effect_combo = None
-        self.st_fixed_check = None
+        self.st_mode_combo = None
         self.dlc_timeout_spinbox = None
         self.log_view = None
         self.default_page_combo = None
@@ -4235,10 +4239,12 @@ class SettingsPage(ScrollArea):
         self.unlocker_combo.setFixedWidth(180)
         app_config_card.addGroup(FluentIcon.SETTING, tr("unlocker_mode"), tr("force_unlocker_hint"), self.unlocker_combo)
 
-        self.st_fixed_check = SwitchButton()
-        self.st_fixed_check.setChecked(False)
-        self.st_fixed_check.setToolTip(tr("st_fixed_tooltip"))
-        app_config_card.addGroup(FluentIcon.SETTING, tr("st_settings"), tr("st_settings_hint"), self.st_fixed_check)
+        self.st_mode_combo = ComboBox()
+        self.st_mode_combo.addItems([tr("auto_update"), tr("st_fixed_enable")])
+        self.st_mode_combo.setCurrentIndex(0)
+        self.st_mode_combo.setFixedWidth(180)
+        self.st_mode_combo.setToolTip(tr("st_fixed_tooltip"))
+        app_config_card.addGroup(FluentIcon.SETTING, tr("st_settings"), tr("st_settings_hint"), self.st_mode_combo)
 
         self.dlc_timeout_spinbox = SpinBox()
         self.dlc_timeout_spinbox.setRange(5, 600)
@@ -4389,9 +4395,8 @@ class SettingsPage(ScrollArea):
         if self.unlocker_combo:
             self.unlocker_combo.currentIndexChanged.connect(self._on_setting_changed)
         
-        # SteamTools固定版本
-        if self.st_fixed_check:
-            self.st_fixed_check.checkedChanged.connect(self._on_setting_changed)
+        if self.st_mode_combo:
+            self.st_mode_combo.currentIndexChanged.connect(self._on_setting_changed)
         
         # DLC 超时时间
         if self.dlc_timeout_spinbox:
@@ -4839,9 +4844,10 @@ class SettingsPage(ScrollArea):
                 else:
                     self.unlocker_combo.setCurrentIndex(0)
             
-            # 加载SteamTools固定版本设置
-            if self.st_fixed_check:
-                self.st_fixed_check.setChecked(config.get("ST_Fixed_Version", False))
+            # 加载SteamTools版本模式设置
+            if self.st_mode_combo:
+                is_fixed = config.get("ST_Fixed_Version", False)
+                self.st_mode_combo.setCurrentIndex(1 if is_fixed else 0)
             
             # 加载DLC超时时间
             if self.dlc_timeout_spinbox:
@@ -4973,9 +4979,9 @@ class SettingsPage(ScrollArea):
                 unlocker_map = {0: "auto", 1: "steamtools", 2: "greenluma"}
                 config["force_unlocker_type"] = unlocker_map.get(self.unlocker_combo.currentIndex(), "auto")
             
-            # 保存SteamTools固定版本设置
-            if self.st_fixed_check:
-                config["ST_Fixed_Version"] = self.st_fixed_check.isChecked()
+            # 保存SteamTools版本模式设置
+            if self.st_mode_combo:
+                config["ST_Fixed_Version"] = self.st_mode_combo.currentIndex() == 1
             
             # 保存DLC超时时间
             if self.dlc_timeout_spinbox:
@@ -5410,6 +5416,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
 
 
 
