@@ -18,7 +18,16 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首页', link: '/' },
-          { text: '入门指南', link: '/guide/getting-started' },
+          {
+            text: '入门指南',
+            items: [
+              { text: '安装前准备', link: '/guide/prepare' },
+              { text: '安装 FluentInstall', link: '/guide/install' },
+              { text: '使用程序', link: '/guide/usage' },
+              { text: '界面截图', link: '/guide/screenshots' },
+              { text: '视频宣传', link: '/guide/videos' }
+            ]
+          },
           { text: '常见问题', link: '/faq/' },
           {
             text: '关于',
@@ -39,9 +48,13 @@ export default defineConfig({
         ],
         sidebar: [
           {
-            text: '指南',
+            text: '入门指南',
             items: [
-              { text: '入门指南', link: '/guide/getting-started' }
+              { text: '安装前准备', link: '/guide/prepare' },
+              { text: '安装 FluentInstall', link: '/guide/install' },
+              { text: '使用程序', link: '/guide/usage' },
+              { text: '界面截图', link: '/guide/screenshots' },
+              { text: '视频宣传', link: '/guide/videos' }
             ]
           },
           {
@@ -74,7 +87,16 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首頁', link: '/zh-tw/' },
-          { text: '入門指南', link: '/zh-tw/guide/getting-started' },
+          {
+            text: '入門指南',
+            items: [
+              { text: '安裝前準備', link: '/zh-tw/guide/prepare' },
+              { text: '安裝 FluentInstall', link: '/zh-tw/guide/install' },
+              { text: '使用程式', link: '/zh-tw/guide/usage' },
+              { text: '介面截圖', link: '/zh-tw/guide/screenshots' },
+              { text: '影片宣傳', link: '/zh-tw/guide/videos' }
+            ]
+          },
           { text: '常見問題', link: '/zh-tw/faq/' },
           {
             text: '關於',
@@ -95,9 +117,13 @@ export default defineConfig({
         ],
         sidebar: [
           {
-            text: '指南',
+            text: '入門指南',
             items: [
-              { text: '入門指南', link: '/zh-tw/guide/getting-started' }
+              { text: '安裝前準備', link: '/zh-tw/guide/prepare' },
+              { text: '安裝 FluentInstall', link: '/zh-tw/guide/install' },
+              { text: '使用程式', link: '/zh-tw/guide/usage' },
+              { text: '介面截圖', link: '/zh-tw/guide/screenshots' },
+              { text: '影片宣傳', link: '/zh-tw/guide/videos' }
             ]
           },
           {
@@ -130,7 +156,16 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/en/' },
-          { text: 'Quick Start', link: '/en/guide/getting-started' },
+          {
+            text: 'Quick Start',
+            items: [
+              { text: 'Preparation', link: '/en/guide/prepare' },
+              { text: 'Installation', link: '/en/guide/install' },
+              { text: 'Usage', link: '/en/guide/usage' },
+              { text: 'Screenshots', link: '/en/guide/screenshots' },
+              { text: 'Videos', link: '/en/guide/videos' }
+            ]
+          },
           { text: 'FAQ', link: '/en/faq/' },
           {
             text: 'About',
@@ -151,9 +186,13 @@ export default defineConfig({
         ],
         sidebar: [
           {
-            text: 'Guide',
+            text: 'Quick Start',
             items: [
-              { text: 'Quick Start', link: '/en/guide/getting-started' }
+              { text: 'Preparation', link: '/en/guide/prepare' },
+              { text: 'Installation', link: '/en/guide/install' },
+              { text: 'Usage', link: '/en/guide/usage' },
+              { text: 'Screenshots', link: '/en/guide/screenshots' },
+              { text: 'Videos', link: '/en/guide/videos' }
             ]
           },
           {
@@ -189,4 +228,3 @@ export default defineConfig({
     }
   }
 })
-
