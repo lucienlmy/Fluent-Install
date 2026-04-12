@@ -1,6 +1,9 @@
 # Fluent Install
+
 软件文档：https://zhouchentao666.github.io/Fluent-Install/
+
 繁中版本：https://zhouchentao666.github.io/Fluent-Install/zh-tw/
+
 English Version：https://zhouchentao666.github.io/Fluent-Install/en/
 
 [English Version](./README_EN.md)
