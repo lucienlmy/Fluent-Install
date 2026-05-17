@@ -118,14 +118,34 @@
                 "tags": ["CRACKFIX", "voices38", "直链"]
             }
         ],
-        "vm_bypass_patches": [],
-        "tools": [],
+        "tools": [
+            {
+                "id": "tool_001",
+                "name": "SteamSetup.exe",
+                "download_url": "https://cdn.fastly.steamstatic.com/client/installer/SteamSetup.exe",
+                "tags": ["Steam", "工具"]
+            },
+            {
+                "id": "tool_002",
+                "name": "steamcommunity 302加速器",
+                "version": "V14.0.02",
+                "download_urls": {
+                    "amd64": "https://www.dogfight360.com/blog/wp-content/uploads/2026/02/steamcommunity_302_AMD64_V14.0.02.zip",
+                    "arm64": "https://www.dogfight360.com/blog/wp-content/uploads/2026/02/steamcommunity_302_ARM64_V14.0.02.zip"
+                },
+                "filenames": {
+                    "amd64": "steamcommunity_302_AMD64_V14.0.02.zip",
+                    "arm64": "steamcommunity_302_ARM64_V14.0.02.zip"
+                },
+                "tags": ["Steam", "302", "加速器", "自动架构"]
+            }
+        ],
         "other": []
     },
     "metadata": {
         "version": "1.0",
         "last_updated": "2026-05-17",
-        "total_resources": 17,
-        "categories": ["trainers", "crack_patches", "vm_bypass_patches", "tools", "other"]
+        "total_resources": 19,
+        "categories": ["trainers", "crack_patches", "tools", "other"]
     }
 }
