@@ -1,0 +1,30 @@
+{
+    "resources": {
+        "trainers": [],
+        "crack_patches": [
+            {
+                "id": "crack_001",
+                "name": "地平线6 RUNE离线补丁.zip",
+                "size": "13.5MB",
+                "download_url": "https://lanzou.jasmiam.top/?url=https://wwazq.lanzoub.com/inCzB3pndc5c",
+                "tags": ["RUNE", "离线补丁"]
+            },
+            {
+                "id": "crack_002",
+                "name": "深海迷航2 联机补丁.zip",
+                "size": "25.2MB",
+                "download_url": "https://lanzou.jasmiam.top/?url=https://wwazq.lanzoub.com/iErCB3pndckh",
+                "tags": ["联机补丁"]
+            }
+        ],
+        "vm_bypass_patches": [],
+        "tools": [],
+        "other": []
+    },
+    "metadata": {
+        "version": "1.0",
+        "last_updated": "2026-05-17",
+        "total_resources": 2,
+        "categories": ["trainers", "crack_patches", "vm_bypass_patches", "tools", "other"]
+    }
+}
