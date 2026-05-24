@@ -8,6 +8,7 @@
 | GitHub | [点击下载](https://github.com/zhouchentao666/Fluent-Install/releases/latest) |
 | 国内云盘 | [点击下载](https://wwazq.lanzoub.com/b00odsy2kd)（密码: 1234） |
 | 开源地址 | [GitHub](https://github.com/zhouchentao666/Fluent-Install/) |
+
 双击FluentInstall.exe启动
 
 ### 方式2：
