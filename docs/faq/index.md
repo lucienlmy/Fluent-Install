@@ -34,7 +34,25 @@
 
 ---
 
-## 四：常见错误及解决方案
+## 四：软件显示内核冲突怎么办？
+打开steam目录（通常在C:\Program Files (x86)\Steam）删除根目录的AppList打开config文件夹，如果你用的steamtools，删掉lua文件夹，如果你用的opensteamtool，删掉stplug-in文件夹注意：使用ost前必须把steamtools卸载干净！进入Steam安装根目录，删除以下文件：
+ 
+```
+Steam\hid.dll 
+Steam\XInput1_4.dll 
+Steam\dwmapi.dll
+Steam\config\stplug-in 文件夹 
+Steam\config\depotcache 文件夹 
+Steam\appcache\httpcache 文件夹 
+```
+ 
+这些文件将被彻底删除，从而完成SteamTools的卸载。
+
+之后再复制OST3个dll进去。点击流畅入库设置里的生成OST配置文件。之后再重启下软件看看内核会不会冲突。
+
+---
+
+## 五：常见错误及解决方案
 
 ### 无互联网连接
 
